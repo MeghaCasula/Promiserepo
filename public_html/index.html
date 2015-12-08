@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head >
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+         
+       <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+         <script type="text/javascript" src="angular.min.js"></script>
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="angular-route.min.js"></script>
+    <script type="text/javascript" src="angular-resource.min.js"></script>
+       <script src="app.js"></script>
+    </head>
+    <body ng-app="App" ng-controller="ctrl">
+        <div class="jumbotron">
+            <button class="btn btn-primary pull-right" ng-click="add()">
+                <i class="fa fa-plus" ></i>
+                   Add Books</button>
+            <h1>My BookShelf</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 well">
+                    <h3><i class="fa fa-book fa-fw"></i>Books</h3>
+                    <ul class="nav nav-pills nav-stacked" >
+                        <li ng-repeat="b in bookList" ng-class="{active:selected.name === b.name}">
+                            <a href="" ng-click="get(b)"> {{b.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 well" ng-show="selected">
+                    <h2 class="center-block">{{selected.name}}</h2>
+                    <dl class="dl-horizontal">
+                        <dt class="pull-left">Author</dt>
+                        <dd>{{selected.author}}</dd>
+                    </dl>
+                    
+                </div>
+                <div class="col-sm-3" ng-show="selected">
+                    <button class="btn btn-primary form-control" ng-click="update(selected)">
+                        <i class="fa fa-pencil"></i>Update this book
+                    </button>
+                    <button class="btn btn-danger form-control" ng-click="delete(selected)">
+                        <i class="fa fa-pencil"></i>Delete this book
+                    </button>                    
+                </div>
+            </div>            
+        </div>
+        
+    </body>
+     
+</html>
